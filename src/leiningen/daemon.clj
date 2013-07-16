@@ -35,7 +35,10 @@
 (defn pid-present?
   "Returns the pid contained in the pidfile, if present, else nil"
   [project alias]
-  (get-pid (common/get-pid-path project alias)))
+   ;(let [pid-path (common/get-pid-path project alias)]
+    ;(println (str "trying to resolve pid for " pid-path " with alias " alias ))
+    (get-pid (common/get-pid-path project alias)))
+;)
 
 (defn running?
   "True if there's a process running with the pid contained in the pidfile"
@@ -60,10 +63,10 @@
 (defn do-start [project alias args]
   (let [timeout (* 5 60)
         arg-str (str/join " " args)
-        alias (name alias)
-        log-file (format "%s.log" alias)
+        daemon-name (name alias)
+        log-file (format "%s.log" daemon-name)
         lein (get-lein-script)
-        nohup-cmd (format "nohup %s daemon-starter %s %s </dev/null &> %s &" lein alias arg-str log-file)]
+        nohup-cmd (format "nohup %s daemon-starter %s %s </dev/null &> %s &" lein daemon-name arg-str log-file)]
     (println "pid not present, starting")
     (when-not lein
       (abort "lein-daemon requires lein-2.0.0-RC1 or later"))
