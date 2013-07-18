@@ -6,7 +6,8 @@
             [leiningen.core.project :as project]
             [leiningen.daemon :as daemon]
             [leiningen.daemon-starter :as starter]
-            [leiningen.daemon.common :as common]))
+            [leiningen.daemon.common :as common]
+  ))
 
 (defn cleanup-pids [f]
   (common/sh! "bash" "-c" "rm -rf *.pid")

@@ -1,2 +1,7 @@
 target
 pom.xml
+lein-daemon.ipr
+lein-daemon.iml
+lein-daemon.iws
+lein_daemon.iml
+.idea/

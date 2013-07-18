@@ -5,7 +5,15 @@
   :eval-in-leiningen true
   :profiles {:dev
              {:dependencies
-              [[bond "0.2.3" :exclusions [org.clojure/clojure]]]}}
+              [[bond "0.2.5" :exclusions [org.clojure/clojure]]
+               [lein-daemon-runtime "0.5.0"]
+               [org.clojure/clojure "1.5.1"]
+               [org.clojure/clojure-contrib "1.2.0"]
+               ]}}
+  ;:dependencies [[org.clojure/clojure "1.5.1"]
+  ;               [org.clojure/clojure-contrib "1.2.0"]
+  ;               [bond "0.2.3"]                 
+  ;               ]
   :deploy-repositories [["releases" {:url ~(str "file:///" (System/getenv "INOFT_PUBLIC_REPO_PATH") "/releases")
                                      :username "john"
                                      :password "doh"
